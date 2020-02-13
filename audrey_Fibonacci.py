@@ -40,23 +40,24 @@ for i in range(0, num):
     nterms = int(input("How many sequence: "))
     number.append(nterms)
     starTime = time.time()
+    print('recursive fibonacci')
     for i in range(nterms):
         print(fib1(i))
     starTimeTwo = time.time()
+    print('iterative fibonacci')
     for i in range(nterms):
         print(fib2(i))
-
+    print('fast aglogrithm fibonacci')
     starTimeThree = time.time()
     for i in range(nterms):
         print(fib3(i))
-
     runTime.append(time.time() - starTime)
     runTimeTwo.append(time.time() - starTimeTwo)
     runTimeThree.append(time.time() - starTimeThree)
-print(number)
-print(runTime)
-print(runTimeTwo)
-print(runTimeThree)
+print('Number of list - {}'.format(number))
+print('Runtime of recursive fibonacci sequence - {}'.format(runTime))
+print('Runtime of iterative fibonacci sequence - {}'.format(runTimeTwo))
+print('Runtime of fast algorithm fibonacci- {}'.format(runTimeThree))
 
 bars1 = runTime
 bars2 = runTimeTwo
@@ -69,9 +70,9 @@ r3 = [x + barWidth for x in r2]
 plt.bar(r1, bars1, color='#7f6d5f', width=barWidth,
         edgecolor='white', label='recursive')
 plt.bar(r2, bars2, color='#557f2d', width=barWidth,
-        edgecolor='white', label='iteration')
+        edgecolor='white', label='iterative')
 plt.bar(r3, bars3, color='#2d7f5e', width=barWidth,
-        edgecolor='white', label='fast')
+        edgecolor='white', label='fast algorithm')
 
 plt.xlabel('group', fontweight='bold')
 plt.xticks([r + barWidth for r in range(len(bars1))], number)
